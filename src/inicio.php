@@ -1,6 +1,6 @@
 <?php
     $servidor = "db";
-    $usuario = "user"; // Corregido como en el paso anterior
+    $usuario = "user"; 
     $clave = "localhost";
     $baseDeDatos = "vulnerable";
 
@@ -47,4 +47,5 @@
 ?>
     </section>
 </body>
+
 </html>
