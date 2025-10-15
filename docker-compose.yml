@@ -1,0 +1,56 @@
+services:
+  # Servicio de la Base de Datos MySQL
+  db:
+    image: mysql:latest
+    container_name: mysql8
+    environment:
+      MYSQL_ROOT_PASSWORD: localhost
+      MYSQL_DATABASE: Examen
+      MYSQL_USER: user
+      MYSQL_PASSWORD: localhost
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks: # 👈 Asegúrate de que esta sección exista
+      - app-network
+    restart: always
+
+  # Servicio de phpMyAdmin
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: phpmyadmin
+    environment:
+      PMA_HOST: db  # ✅ CORREGIDO: Apunta a 'db'
+      PMA_PORT: 3306
+    ports:
+      - "8080:80"
+    depends_on:
+      - db          # ✅ CORREGIDO: Depende de 'db'
+    networks: # 👈 Asegúrate de que esta sección exista
+      - app-network
+    restart: always
+
+# ⬇️ NUEVO SERVICIO: Servidor Web con Apache y PHP ⬇️
+  webserver:
+    build: .  # 👈 AÑADE ESTO: le dice que construya usando el Dockerfile en esta carpeta
+    # image: php:8.2-apache 👈 ELIMINA O COMENTA ESTA LÍNEA
+    container_name: apache_php_container
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - ./src:/var/www/html
+    depends_on:
+      - db
+    networks:
+      - app-network
+
+# Define las redes y volúmenes
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  mysql-data:
+    driver: local
