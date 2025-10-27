@@ -45,7 +45,6 @@ services:
     networks:
       - app-network
 
-# Define las redes y volúmenes
 networks:
   app-network:
     driver: bridge
@@ -53,3 +52,4 @@ networks:
 volumes:
   mysql-data:
     driver: local
+
