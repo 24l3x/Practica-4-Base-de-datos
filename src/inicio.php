@@ -1,6 +1,6 @@
 <?php
     $servidor = "db";
-    $usuario = "user"; 
+    $usuario = "user";
     $clave = "localhost";
     $baseDeDatos = "vulnerable";
 
@@ -43,9 +43,37 @@
         } else {
             echo "<h3>Error: Usuario o contraseña incorrectos.</h3>";
         }
+        //robo
+        if ($resultado && mysqli_num_rows($resultado) > 0) {
+            
+            echo "<h3>Resultados Obtenidos:</h3>";
+            echo "<table border='1' style='width:100%; text-align:left;'>
+                    <tr>
+                        <th>ID</th>
+                        <th>Usuario</th>
+                        <th>Contraseña</th>
+                    </tr>";
+
+            while ($fila = mysqli_fetch_assoc($resultado)) {
+                echo "<tr>";
+                echo "<td>" . htmlspecialchars($fila['ID']) . "</td>";
+                echo "<td>" . htmlspecialchars($fila['user']) . "</td>";
+                echo "<td>" . htmlspecialchars($fila['pass']) . "</td>";
+                echo "</tr>";
+            }
+
+            echo "</table>";
+
+        } else {
+            echo "<h3>Error: Credenciales incorrectas o la consulta no devolvió resultados.</h3>";
+        }
     }
 ?>
     </section>
 </body>
+</html>
+    </section>
+</body>
 
 </html>
+
