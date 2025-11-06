@@ -1,9 +1,8 @@
-# Practica 4.1 SLQ injection
+#Practica 4.1 SLQ injection
 
 En esta practica lo que se busca es aprender a identificar las vulnerabilidades en el codigo al momento de conectar una base de datos a una pagina de internet, asi mismo, saber como solucionar dichos errores.
 
-
-![](https://img.shields.io/github/tag/24l3x/Practica-4-Base-de-datos/src/inicio.php) 
+![GitHub Tag](https://img.shields.io/github/v/tag/24l3x/Practica-4-Base-de-datos)![YouTube Channel Subscribers](https://img.shields.io/youtube/channel/subscribers/UC5hV2fwuJWjfaWi-a07kPXg?link=https%3A%2F%2Fwww.youtube.com%2F%40pooh7057)
 
 
 ## Conectar la base de datos a una pagina web con PHP
@@ -36,3 +35,5 @@ Donde **$servidor** es para el host que tengamos en nuestra pagina de internet, 
         	$ejecutarInsertar = mysqli_query($enlace, $insertarDatos);
     	}  
     ?>
+
+###End
