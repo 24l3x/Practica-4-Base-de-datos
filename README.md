@@ -1,4 +1,4 @@
-#Practica 4.1 SLQ injection
+# Practica 4.1 SLQ injection
 
 En esta practica lo que se busca es aprender a identificar las vulnerabilidades en el codigo al momento de conectar una base de datos a una pagina de internet, asi mismo, saber como solucionar dichos errores.
 
@@ -7,7 +7,7 @@ En esta practica lo que se busca es aprender a identificar las vulnerabilidades 
 
 
 
-####Conectar la base de datos a una pagina web con PHP
+#### Conectar la base de datos a una pagina web con PHP
 
 Teniendo la pagina html creada, podriamos tener un archivo especifico o antes de usar "<!DOCTYPE html>" pondremos el siguiente codigo:
 
@@ -37,5 +37,3 @@ Donde **$servidor** es para el host que tengamos en nuestra pagina de internet, 
         	$ejecutarInsertar = mysqli_query($enlace, $insertarDatos);
     	}  
     ?>
-
-###End
